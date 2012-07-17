@@ -1,0 +1,774 @@
+{
+    "project": {},
+    "files": {
+        "js/TreeView.js": {
+            "name": "js/TreeView.js",
+            "modules": {
+                "treeview": 1
+            },
+            "classes": {
+                "TreeView": 1,
+                "TreeLeaf": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js/TreeViewHTMLRenderer.js": {
+            "name": "js/TreeViewHTMLRenderer.js",
+            "modules": {
+                "widget-htmlrenderer": 1
+            },
+            "classes": {
+                "WidgetHTMLRenderer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "treeview": {
+            "name": "treeview",
+            "submodules": {},
+            "classes": {
+                "TreeView": 1,
+                "TreeLeaf": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js/TreeView.js",
+            "line": 537,
+            "description": "The Treeview module is a UI widget that allows users\nto create a visual representation of a hierarchical list\nof elements."
+        },
+        "widget-htmlrenderer": {
+            "name": "widget-htmlrenderer",
+            "submodules": {},
+            "classes": {
+                "WidgetHTMLRenderer": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 64,
+            "description": "Provides the WidgetHTMLRenderer extensions, which override the base Widget API \nto allow widgets to be rendered purely using HTML from templates, without any \nNode references. \n\nThis allows Widgets to be rendered on the server, and also optimizes rendering \nin high-scale applications such as TreeView.\n\n**Note:** When applied, Node references to `boundingBox` and `contentBox` \nwon't be available until the Widget is rendered.\n\nAlthough not required of widget implementors, the Widget base class uses\nHandlebars to render its `boundingBox` and `contentBox` templates. If \noverriding the `CONTENT_TEMPLATE` or `BOUNDING_TEMPLATE` values, you should \nuse Handlebars token syntax, and maintain tokens used by the default \ntemplates."
+        }
+    },
+    "classes": {
+        "TreeView": {
+            "name": "TreeView",
+            "shortname": "TreeView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "treeview",
+            "namespace": "",
+            "file": "js/TreeView.js",
+            "line": 9,
+            "description": "Creates a treeview to visually represent a hierarchical list of elements \nand provides interactivity for showing and hiding subsections of that list.\n\nExample usage:\n\n    var tree = new Y.TreeView({\n        label : \"This my tree\",\n        children: [\n            { label: \"Leaf One\" },\n            { label: \"Leaf Two\" },\n            { type: \"TreeView\", label: \"Subtree\", children: [\n               {  label: \"Subtree - Leaf One\" },\n               {  label: \"Subtree - Leaf Two\" },\n               {  label: \"Subtree - Leaf Three\" },\n               {  label: \"Subtree - Leaf Four\" }\n            ]}\n        ]\n    });\n \n    tree.render(\"#mytree\");",
+            "is_constructor": 1,
+            "extends": "Widget",
+            "uses": [
+                "WidgetParent",
+                "WidgetChild",
+                "WidgetHTMLRenderer"
+            ],
+            "params": [
+                {
+                    "name": "config",
+                    "description": "The following are configuration properties that can be\n    specified _in addition_ to default attribute values and the non-attribute\n    properties provided by `Y.Widget`:",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "children",
+                            "description": "An array of child objects that can be individual\n    tree leaves or sub-trees.",
+                            "type": "Object",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "TreeLeaf": {
+            "name": "TreeLeaf",
+            "shortname": "TreeLeaf",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "treeview",
+            "namespace": "",
+            "file": "js/TreeView.js",
+            "line": 537,
+            "description": "An individual Treeleaf of a Treeview. Extends `Y.WidgetChild` and acts as a default\nchild type of a tree, unless specified otherwise.",
+            "is_constructor": 1,
+            "extends": "Widget",
+            "uses": [
+                "WidgetChild",
+                "WidgetHTMLRenderer"
+            ]
+        },
+        "WidgetHTMLRenderer": {
+            "name": "WidgetHTMLRenderer",
+            "shortname": "WidgetHTMLRenderer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [
+                "TreeView",
+                "TreeLeaf"
+            ],
+            "module": "widget-htmlrenderer",
+            "namespace": "",
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 64,
+            "description": "WidgetHTMLRenderer is an Extension for Widget, to be used with Y.Base.create or\nY.Base.mix. It provides a `renderHTML()` method which can be used to generate the \ninitial markup for the widget purely from templates, without creating Node \nreferences.\n\nWhen mixed in, `renderHTML()` will generate the markup for the widget and the \ncaller is responsible for adding it to the DOM. \n\nWidget developers need to implement a `renderUI(buffer)` method which writes\nstring content to the buffer passed in. This buffer gets added as the contents\nof the contentBox.\n\n`render()` will generate boundingBox and contentBox node references, and invoke \n`bindUI()` and `syncUI()` to bind them.\n\nIf `render()` is called and `renderHTML()` hasn't been invoked already, \nit will be invoked, before bindUI and syncUI are called."
+        }
+    },
+    "classitems": [
+        {
+            "file": "js/TreeView.js",
+            "line": 46,
+            "description": "Property defining the markup template for the bounding box.",
+            "itemtype": "property",
+            "name": "BOUNDING_TEMPLATE",
+            "type": "String",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 54,
+            "description": "Property defining the markup template for the content box.",
+            "itemtype": "property",
+            "name": "CONTENT_TEMPLATE",
+            "type": "String",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 61,
+            "description": "Property defining the markup template for the treeview label.",
+            "itemtype": "property",
+            "name": "TREEVIEWLABEL_TEMPLATE",
+            "type": "String",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 69,
+            "description": "Initializer lifecycle implementation for the Treeview class. \n<p>Registers the TreeView instance. It subscribes to the onParentChange \n   event which is triggered each time a new tree is added.</p>\n<p>It publishes the toggleTreeState event, which gets fired everytime a node is\n   collapsed/expanded</p>",
+            "itemtype": "method",
+            "name": "initializer",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "config",
+                    "description": "Configuration object literal for the widget",
+                    "type": "Object"
+                }
+            ],
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 88,
+            "description": "renderUI implementation.\n\nCreates a visual representation of the treeview based on existing parameters.",
+            "itemtype": "method",
+            "name": "renderUI",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 108,
+            "description": "bindUI implementation\n\nAssigns listeners to relevant events that change the state of the treeview.",
+            "itemtype": "method",
+            "name": "bindUI",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 130,
+            "description": "Handles all the internal treeview events.",
+            "itemtype": "method",
+            "name": "onViewEvents",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 141,
+            "description": "Handles all the internal keydown events.",
+            "itemtype": "method",
+            "name": "_onKeyDown",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 156,
+            "description": "Called when the up arrow key is pressed.",
+            "itemtype": "method",
+            "name": "_onUpKey",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 172,
+            "description": "Called when the down arrow key is pressed.",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "target element",
+                    "type": "Y.Node"
+                }
+            ],
+            "itemtype": "method",
+            "name": "_onDownKey",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 189,
+            "description": "Called when the right arrow key is pressed.",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "target element",
+                    "type": "Y.Node"
+                }
+            ],
+            "itemtype": "method",
+            "name": "_onRightArrowKey",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 202,
+            "description": "Called when the left arrow key is pressed.",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "target element",
+                    "type": "Y.Node"
+                }
+            ],
+            "itemtype": "method",
+            "name": "_onLeftArrowKey",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 215,
+            "description": "Renders all child Widgets for the parent.  \n<p>\nThis method is invoked after renderUI is called for the Widget class\nusing YUI's aop infrastructure. \nIf lazyLoad is enabled, it will not prepare the children strings until is needed.\n</p>",
+            "params": [
+                {
+                    "name": "contentBuffer",
+                    "description": "The content buffer.",
+                    "type": "Object"
+                }
+            ],
+            "itemtype": "method",
+            "name": "_renderChildren",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 235,
+            "description": "Returns the combined HTML string for all of the treeview's children.",
+            "params": [
+                {
+                    "name": "tree",
+                    "description": "The tree we are trying to obtain the children from",
+                    "type": "TreeView"
+                }
+            ],
+            "itemtype": "method",
+            "name": "_getChildrenHTML",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 253,
+            "description": "This method in invoked on demand when children are required\nto be displayed. It gets the children's HTML strings, and then \nappends them to the parent.",
+            "itemtype": "method",
+            "name": "_lazyRenderChildren",
+            "params": [
+                {
+                    "name": "treeWidget",
+                    "description": "The instance of treeview widget.",
+                    "type": "Object"
+                },
+                {
+                    "name": "treeNode",
+                    "description": "The tree node.",
+                    "type": "Y.Node"
+                }
+            ],
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 271,
+            "description": "Collapses a tree.",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "An optional parameter specifying the target that triggered the event.",
+                    "type": "Y.Node"
+                }
+            ],
+            "itemtype": "method",
+            "name": "collapse",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 289,
+            "description": "Expands a tree. If the tree hasn't been rendered yet, it will be rendered, then expanded.",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "An optional parameter specifying the target that triggered the event.",
+                    "type": "Y.Node"
+                }
+            ],
+            "itemtype": "method",
+            "name": "expand",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 313,
+            "description": "Toggles the tree state. If the Tree hasn't been rendered, it will be rendered first, then toggled.",
+            "params": [
+                {
+                    "name": "target",
+                    "description": "An optional parameter specifying the target that triggered the event.",
+                    "type": "Y.Node"
+                }
+            ],
+            "itemtype": "method",
+            "name": "_toggleTreeState",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 334,
+            "description": "Sets the container for children to renderTo when using _uiAddChild",
+            "itemtype": "method",
+            "name": "_setChildrenContainer",
+            "access": "protected",
+            "tagname": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 345,
+            "description": "Utility method to add the boundingClasses and contentClasses property values\nto the Handlebars context passed in. Similar to _renderBoxClassNames() on\nthe Node based renderer.",
+            "itemtype": "method",
+            "name": "_renderBoxClassNames",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "The Handlebars context object to which the\nboundingClasses and contentClasses properties get added.",
+                    "type": "Object"
+                }
+            ],
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 380,
+            "description": "Updates the UI in response to a child being added.",
+            "itemtype": "method",
+            "name": "_uiAddChild",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "child",
+                    "description": "The child Widget instance to render.",
+                    "type": "Widget"
+                },
+                {
+                    "name": "parentNode",
+                    "description": "The Node under which the \nchild Widget is to be rendered.",
+                    "type": "Object"
+                }
+            ],
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 440,
+            "description": "The label attribute for the tree.",
+            "itemtype": "attribute",
+            "name": "label",
+            "type": "String",
+            "default": "\"\"",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 451,
+            "description": "Flag to indicate if a tree has been rendered to the DOM or not.",
+            "itemtype": "attribute",
+            "name": "DOMReady",
+            "type": "Object",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 459,
+            "description": "Configuration to enabled lazy loading. When enabled, all the child rendering will be done only on demand.",
+            "itemtype": "attribute",
+            "name": "lazyLoad",
+            "type": "Boolean",
+            "default": "true",
+            "initonly": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 474,
+            "description": "A read-only attribute to indicate whether a tree has been populated with its children or not.",
+            "itemtype": "attribute",
+            "name": "populated",
+            "type": "Boolean",
+            "readonly": "",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 486,
+            "description": "Attribute to indicate whether a tree is in a collapsed state or not.",
+            "itemtype": "attribute",
+            "name": "collapsed",
+            "type": "Boolean",
+            "default": "true",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 498,
+            "description": "The class type of the tree child nodes.",
+            "itemtype": "attribute",
+            "name": "defaultChildType",
+            "type": "String",
+            "default": "\"TreeLeaf\"",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 509,
+            "description": "The attribute contains a custom getter for the Bounding box so that\nit's only rendered when needed.",
+            "itemtype": "attribute",
+            "name": "boundingBox",
+            "type": "BoundingBox",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 522,
+            "description": "The attribute contains a custom getter for the Content box so that\nit's only rendered when needed.",
+            "itemtype": "attribute",
+            "name": "contentBox",
+            "type": "contentBox",
+            "class": "TreeView",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 549,
+            "description": "Property defining the markup template for the bounding box.",
+            "itemtype": "property",
+            "name": "BOUNDING_TEMPLATE",
+            "type": "String",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 557,
+            "description": "Property defining the markup template for the content box.",
+            "itemtype": "property",
+            "name": "CONTENT_TEMPLATE",
+            "type": "String",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 565,
+            "description": "renderUI implementation\n\nCreates a visual representation of the tree leaf based on existing parameters.",
+            "itemtype": "method",
+            "name": "renderUI",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 577,
+            "description": "Flag to indicate if a leaf has been rendered to the DOM or not.",
+            "itemtype": "attribute",
+            "name": "DOMReady",
+            "type": "Boolean",
+            "default": "false",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 588,
+            "description": "The label for the tree leaf.",
+            "itemtype": "attribute",
+            "name": "label",
+            "type": "String",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 596,
+            "description": "The attribute contains a custom getter for the Bounding box so that\nit's only rendered when needed.",
+            "itemtype": "attribute",
+            "name": "boundingBox",
+            "type": "BoundingBox",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeView.js",
+            "line": 608,
+            "description": "The attribute contains a custom getter for the Content box so that\nit's only rendered when needed.",
+            "itemtype": "attribute",
+            "name": "contentBox",
+            "type": "contentBox",
+            "class": "TreeLeaf",
+            "module": "treeview"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 89,
+            "description": "Generates the markup for the widget. \n\nWidget implementers need to implement a renderUI(buffer) method which\nwrites string content to the buffer (array) passed in. The buffers contents\nget added as the contents of the contentBox.",
+            "itemtype": "method",
+            "name": "renderHTML",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "appendTarget",
+                    "description": ". Optional. The array or node to push content to.",
+                    "type": "Node|Array"
+                }
+            ],
+            "return": {
+                "description": "The rendered HTML string for the widget",
+                "type": "HTML"
+            },
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 138,
+            "description": "Internal method which wraps renderHTML with the default parent node for the \nwidget. Used by the renderer to support the case where renderHTML hasn't been\ninvoked already when render() is called.",
+            "itemtype": "method",
+            "name": "_renderHTML",
+            "access": "private",
+            "tagname": "",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 162,
+            "description": "Renders the template for the Widget's bounding/content boxes.",
+            "itemtype": "method",
+            "name": "_renderUI",
+            "params": [
+                {
+                    "name": "buffer",
+                    "description": "The buffer to write the rendered template to. Will ultimately be Array.join'd",
+                    "type": "Array"
+                },
+                {
+                    "name": "context",
+                    "description": "The context, passed to Handlebars.",
+                    "type": "Object"
+                }
+            ],
+            "access": "protected",
+            "tagname": "",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 174,
+            "description": "Renders the templates for the Widget's bounding/content boxes",
+            "itemtype": "method",
+            "name": "_renderBox",
+            "params": [
+                {
+                    "name": "The",
+                    "description": "buffer to write the rendered template to. Will ultimately be Array.join'd",
+                    "type": "Array"
+                },
+                {
+                    "name": "The",
+                    "description": "context, passed to Handlebars.",
+                    "type": "Object"
+                }
+            ],
+            "access": "protected",
+            "tagname": "",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 199,
+            "description": "Utility method to add the boundingClasses and contentClasses property values\nto the Handlebars context passed in. Similar to _renderBoxClassNames() on \nthe Node based renderer.",
+            "itemtype": "method",
+            "name": "_renderBoxClassNames",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "The Handlebars context object on which the \nboundingClasses and contentClasses properties get added.",
+                    "type": "Object"
+                }
+            ],
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 232,
+            "description": "Sync method, used to generate the boundingBox and contentBox node references,\nafter they've been added to the DOM. This method is invoked by render(),\nprior to invoking bindUI()/syncUI() so that Node references are available \nfor event binding and incremental updates.",
+            "itemtype": "method",
+            "name": "syncRenderedBoxes",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 249,
+            "description": "Overrides the base Widget renderer implementation to invoke:\n\n- renderHTML() if it hasn't been invoked already. For the common use case it will have already been called to generate the markup string for the Widget.\n- bindUI()\n- syncUI()\n\nThe renderer will invoke syncRenderedBoxes() before calling bindUI()/syncUI()\nto establish the contentBox and boundingBox Node references, which don't \nexist prior to render() call. \n\nThis method is invoked by render() and is not chained \nautomatically for the class hierarchy (unlike initializer, destructor) \nso it should be chained manually for subclasses if required.",
+            "itemtype": "method",
+            "name": "renderer",
+            "access": "protected",
+            "tagname": "",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 283,
+            "description": "The Handlebars template to use to render the basic boundingBox HTML.\n\nWhen overriding this value, tokens should be maintained.",
+            "itemtype": "property",
+            "name": "BOUNDING_TEMPLATE",
+            "type": "String",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 293,
+            "description": "The Handlebars template to use to render the basic contentBox HTML.\n\nWhen overriding this value, tokens should be maintained.",
+            "itemtype": "property",
+            "name": "CONTENT_TEMPLATE",
+            "type": "String",
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        },
+        {
+            "file": "js/TreeViewHTMLRenderer.js",
+            "line": 303,
+            "description": "Helper method to set the bounding/content box.\n\nOverrides the base Widget implementation to avoid creating a Node \ninstance from the box templates. Node references to the boundingBox\nand contentBox will be created during widget.render().",
+            "itemtype": "method",
+            "name": "_setBox",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The node's id attribute",
+                    "type": "String"
+                },
+                {
+                    "name": "node",
+                    "description": "The node reference",
+                    "type": "Node|String"
+                },
+                {
+                    "name": "template",
+                    "description": "HTML string template for the node",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The node",
+                "type": "Node"
+            },
+            "class": "WidgetHTMLRenderer",
+            "module": "widget-htmlrenderer"
+        }
+    ]
+}
