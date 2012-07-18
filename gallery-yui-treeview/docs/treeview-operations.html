@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="assets/vendor/prettify/prettify-min.css">
     <script src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script>
     
+    <script src="assets/gallery-yui-treeview-min.js"></script>
+    <link rel="stylesheet" href="assets/gallery-yui-treeview-skin.css">
+
+    
 </head>
 <body>
 
@@ -46,7 +50,7 @@ while preventing malicious XSS attacks.</p>
 </div>
 
 <script>
-YUI().use('treeview', 'escape', function (Y) {
+YUI().use('gallery-yui-treeview', 'escape', function (Y) {
     var tree = new Y.TreeView({
             label: "This my tree",
             children: [
@@ -114,7 +118,7 @@ Create a YUI sandbox and load the <code>treeview</code> and
 Then render a simple tree and expand it:
 </p>
 
-<pre class="code prettyprint">YUI().use(&#x27;treeview&#x27;, &#x27;escape&#x27;, function (Y) {
+<pre class="code prettyprint">YUI().use(&#x27;gallery-yui-treeview&#x27;, &#x27;escape&#x27;, function (Y) {
     var tree = new Y.TreeView({
             label: &quot;This my tree&quot;,
             children: [
@@ -184,7 +188,7 @@ to select and remove the first element of the tree.
 &lt;&#x2F;div&gt;
 
 &lt;script&gt;
-YUI().use(&#x27;treeview&#x27;, &#x27;escape&#x27;, function (Y) {
+YUI().use(&#x27;gallery-yui-treeview&#x27;, &#x27;escape&#x27;, function (Y) {
    var tree = new Y.TreeView({
            label: &quot;This my tree&quot;,
            children: [
