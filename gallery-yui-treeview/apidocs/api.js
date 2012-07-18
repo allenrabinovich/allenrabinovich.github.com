@@ -6,13 +6,13 @@ YUI.add("yuidoc-meta", function(Y) {
         "WidgetHTMLRenderer"
     ],
     "modules": [
-        "treeview",
+        "gallery-yui-treeview",
         "widget-htmlrenderer"
     ],
     "allModules": [
         {
-            "displayName": "treeview",
-            "name": "treeview",
+            "displayName": "gallery-yui-treeview",
+            "name": "gallery-yui-treeview",
             "description": "The Treeview module is a UI widget that allows users\nto create a visual representation of a hierarchical list\nof elements."
         },
         {

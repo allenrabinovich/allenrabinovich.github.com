@@ -4,7 +4,7 @@
         "js/TreeView.js": {
             "name": "js/TreeView.js",
             "modules": {
-                "treeview": 1
+                "gallery-yui-treeview": 1
             },
             "classes": {
                 "TreeView": 1,
@@ -26,8 +26,8 @@
         }
     },
     "modules": {
-        "treeview": {
-            "name": "treeview",
+        "gallery-yui-treeview": {
+            "name": "gallery-yui-treeview",
             "submodules": {},
             "classes": {
                 "TreeView": 1,
@@ -63,7 +63,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "treeview",
+            "module": "gallery-yui-treeview",
             "namespace": "",
             "file": "js/TreeView.js",
             "line": 9,
@@ -100,7 +100,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "treeview",
+            "module": "gallery-yui-treeview",
             "namespace": "",
             "file": "js/TreeView.js",
             "line": 537,
@@ -139,7 +139,7 @@
             "name": "BOUNDING_TEMPLATE",
             "type": "String",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -149,7 +149,7 @@
             "name": "CONTENT_TEMPLATE",
             "type": "String",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -159,7 +159,7 @@
             "name": "TREEVIEWLABEL_TEMPLATE",
             "type": "String",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -177,7 +177,7 @@
                 }
             ],
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -186,7 +186,7 @@
             "itemtype": "method",
             "name": "renderUI",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -195,7 +195,7 @@
             "itemtype": "method",
             "name": "bindUI",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -206,7 +206,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -217,7 +217,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -228,7 +228,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -246,7 +246,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -264,7 +264,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -282,7 +282,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -300,7 +300,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -318,7 +318,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -341,7 +341,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -359,7 +359,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -377,7 +377,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -395,7 +395,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -406,7 +406,7 @@
             "access": "protected",
             "tagname": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -422,7 +422,7 @@
                 }
             ],
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -445,7 +445,7 @@
                 }
             ],
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -456,7 +456,7 @@
             "type": "String",
             "default": "\"\"",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -466,7 +466,7 @@
             "name": "DOMReady",
             "type": "Object",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -478,7 +478,7 @@
             "default": "true",
             "initonly": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -489,7 +489,7 @@
             "type": "Boolean",
             "readonly": "",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -500,7 +500,7 @@
             "type": "Boolean",
             "default": "true",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -511,7 +511,7 @@
             "type": "String",
             "default": "\"TreeLeaf\"",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -521,7 +521,7 @@
             "name": "boundingBox",
             "type": "BoundingBox",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -531,7 +531,7 @@
             "name": "contentBox",
             "type": "contentBox",
             "class": "TreeView",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -541,7 +541,7 @@
             "name": "BOUNDING_TEMPLATE",
             "type": "String",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -551,7 +551,7 @@
             "name": "CONTENT_TEMPLATE",
             "type": "String",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -560,7 +560,7 @@
             "itemtype": "method",
             "name": "renderUI",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -571,7 +571,7 @@
             "type": "Boolean",
             "default": "false",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -581,7 +581,7 @@
             "name": "label",
             "type": "String",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -591,7 +591,7 @@
             "name": "boundingBox",
             "type": "BoundingBox",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeView.js",
@@ -601,7 +601,7 @@
             "name": "contentBox",
             "type": "contentBox",
             "class": "TreeLeaf",
-            "module": "treeview"
+            "module": "gallery-yui-treeview"
         },
         {
             "file": "js/TreeViewHTMLRenderer.js",
